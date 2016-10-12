@@ -1,0 +1,32 @@
+<!--{{user|json}}-->
+<button class="mdl-button mdl-js-button mdl-button--raised" (click)="gotoHeroes()" type="button">Back</button>
+<form (ngSubmit)="onSubmit()" #userForm="ngForm">
+    <div class="mdl-card mdl-shadow--2dp">
+        <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--12-col">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" required type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" id="user_email" name="email" [(ngModel)]="user.email" #email="ngModel">
+                    <label class="mdl-textfield__label" for="user_email">E-mail address</label>
+                    <span class="mdl-textfield__error" *ngIf="email.errors && (email.dirty || email.touched)">Please provide valid e-mail address</span>
+                </div>
+            </div>
+            <div class="mdl-cell mdl-cell--12-col">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" required type="text" id="user_firstName" name="firstName" [(ngModel)]="user.firstName" #firstName="ngModel">
+                    <label class="mdl-textfield__label" for="user_firstName">Firstname</label>
+                    <span class="mdl-textfield__error" *ngIf="firstName.errors && (firstName.dirty || firstName.touched)">Please provide firstname</span>
+                </div>
+            </div>
+            <div class="mdl-cell mdl-cell--12-col">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" required type="text" id="user_lastName" name="lastName" [(ngModel)]="user.lastName" #lastName="ngModel">
+                    <label class="mdl-textfield__label" for="user_lastName">Lastname</label>
+                    <span class="mdl-textfield__error" *ngIf="lastName.errors && (lastName.dirty || lastName.touched)">Please provide lastname</span>
+                </div>
+            </div>
+            <div class="mdl-cell mdl-cell--12-col">
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" type="submit">Submit</button>
+            </div>
+        </div>
+    </div>
+</form>
